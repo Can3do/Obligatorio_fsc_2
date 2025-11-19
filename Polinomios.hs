@@ -56,8 +56,18 @@ sumPol = \pol1 -> \pol2 -> case pol1 of {
 }
 
 --4)
-mulPol :: Polinomio -> Polinomio -> Polinomio -- TODOooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-mulPol = undefined
+mulPol :: Polinomio -> Polinomio -> Polinomio -- paso tests - no puedo creer que esto haya pasado a la primera los test
+mulPol = \pol1 -> \pol2 -> case pol1 of {
+    [] -> [];
+    x:xs -> case pol2 of { -- aca tambien vamos cuardando en el primer polinomio
+        [] -> [];
+        y:ys -> case y of {
+            (d,f) -> sumPol (map (\mon -> case mon of {
+                (c,e) -> (c*d,e+f);
+            }) pol1) (mulPol pol1 ys) -- esto es como una distributiva, multiplico por cada monomio del polinomio y despues se suma todo
+        }
+    }
+}
 
 --5)
 derPol :: Polinomio -> Polinomio -- pasó tests

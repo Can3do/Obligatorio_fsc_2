@@ -21,7 +21,7 @@ data ExPol where
 
 																	
 --10) 
-cantPol :: ExPol ->  -- paso tests
+cantPol :: ExPol -> Int -- paso tests
 cantPol = \expol -> case expol of {
 	Pol p -> 1;
 	Der e -> cantPol e;
