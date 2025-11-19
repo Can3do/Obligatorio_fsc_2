@@ -59,7 +59,7 @@ sumPol = \pol1 -> \pol2 -> case pol1 of {
 mulPol :: Polinomio -> Polinomio -> Polinomio -- paso tests - no puedo creer que esto haya pasado a la primera los test
 mulPol = \pol1 -> \pol2 -> case pol1 of {
     [] -> [];
-    x:xs -> case pol2 of { -- aca tambien vamos cuardando en el primer polinomio
+    x:xs -> case pol2 of { -- aca tambien se va guardando en el primer polinomio
         [] -> [];
         y:ys -> case y of {
             (d,f) -> sumPol (map (\mon -> case mon of {
